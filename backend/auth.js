@@ -86,7 +86,7 @@ router.route("/signup").post(
 router.route("/signout").post((req, res) => {
   passport.authenticate("jwt", (err, payload) => {
     if (payload) {
-      res.clearCookie("token");
+      res.clearCookie("token", { httpOnly: true, secure: true, sameSite: "none" });
       return res.json({ success: true });
     }
     return res.json({ error: "No user to logout" });
