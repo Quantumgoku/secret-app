@@ -30,3 +30,5 @@ mongoose
   .catch((error) => {
     console.log("Not connected to DB");
   });
+
+export default app;
