@@ -45,7 +45,7 @@ router.route("/signin").post(
           return res.json({ error });
         }
         const token = JWT.sign(payload, JWT_SECRET, { expiresIn: "1h" });
-        res.cookie("token", token, { httpOnly: true, secure: true });
+        res.cookie("token", token, { httpOnly: true, secure: true, sameSite: "none" });
         res.json({ payload, success: true });
       });
     })(req, res);
