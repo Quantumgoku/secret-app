@@ -43,6 +43,7 @@ export function AuthProvider({ children }) {
         .post(`${import.meta.env.VITE_BACKEND_URL}/auth/signout`)
         .then(({ data: { success, error } }) => {
           if (success) {
+            setUser({username: null});
             resolve();
           }
           reject(error);
