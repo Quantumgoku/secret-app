@@ -17,3 +17,5 @@ To run the App Locally follow the steps as guided:-
         1. VITE_BACKEND_URL = http://localhost:3000
     2. `pnpn install`
     3. `pnpm run dev`
+
+After Publishing your Secret Code to Sign out from your Account Either Close your Browser or Visit the [Sign in Page](https://secret-app-alpha.vercel.app/)
