@@ -7,15 +7,15 @@ import authRoute from "./auth.js";
 import secretRouter from "./secret.js";
 
 dotenv.config();
-const { PORT, MONGO_URI } = process.env;
+const { PORT, MONGO_URI, FRONTEND_URL } = process.env;
 
 const app = express();
 
 mongoose
   .connect(MONGO_URI, {})
   .then((db) => {
-    console.log("MongoDB connected");
-    app.use(cors({ credentials: true, origin: "http://localhost:5173" }));
+    // console.log("MongoDB connected");
+    app.use(cors({ credentials: true, origin: FRONTEND_URL }));
     app.use(cookieParser());
     app.use(express.json());
     app.use("/auth", authRoute);
